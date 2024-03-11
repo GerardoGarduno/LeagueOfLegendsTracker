@@ -19,7 +19,7 @@ function getPlayerPUUID(playername) {
 
 // Route to handle getting past five games
 app.get('/past5games', async (req, res) => {
-   const playerName = "G2Create";
+   const playerName = req.query.username;
    const PUUID = await getPlayerPUUID(playerName);
    console.log(PUUID);
    //https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/VEJj1lSAABd4LyfNxpa08xO6sAQEZQwhtuwbpq7DN9RfEakc3ct95664ETHrHQANK1N7dR-kdo0F2A/ids?start=0&count=20&api_key=RGAPI-89403eff-af80-496d-809b-c11a9884b068
