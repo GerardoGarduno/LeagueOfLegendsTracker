@@ -1,14 +1,21 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 
-function SearchField({ setGameList }) {
+function SearchField({ setGameList, setPlayerInfo, setPlayerChamps }) {
   const [summonersName, setSummonersName] = useState('');
   // const[gameList, setGameList] = useState([]);
 
   function getPlayerGames(e){
     axios.get("http://localhost:3001/past5games", {params: {username: summonersName}})
       .then(function(response){
-        setGameList(response.data)
+        // setGameList(response.data) Only fetching games
+        const { gameData, championData, playerInfo } = response.data;
+
+        // Update states with fetched data
+        setGameList(gameData);
+        setPlayerInfo(playerInfo);
+        setPlayerChamps(championData);
+        
       }).catch(function(error){
         console.log("This is an error: ",error)
       })

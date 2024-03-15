@@ -5,7 +5,7 @@ const axios = require('axios');
 const app = express();
 app.use(cors());
 
-const API_KEY = 'RGAPI-313a3b4b-4cf7-442e-8417-3498ba87fe3f';
+const API_KEY = 'RGAPI-55de50a5-9ff7-4655-9a01-0b68bf35cab3';
 const port = 3001;
 
 const playerInfo = []
@@ -15,7 +15,7 @@ const playerInfo = []
 function getPlayerPUUID(playername) {
     return axios.get("https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+playername+"?api_key=" +API_KEY)
     .then(response =>{
-        playerInfo.push(response.data);
+        playerInfo[0] = response.data;
         return response.data.puuid;
     }).catch(err => err)
 }
@@ -45,7 +45,7 @@ app.get('/past5games', async (req, res) => {
     //getting the match data using game IDS
     //https://americas.api.riotgames.com/lol/match/v5/matches/NA1_4943293652?api_key=RGAPI-89403eff-af80-496d-809b-c11a9884b068
     var GAMEDATA = [];
-    for(var i  = 0;  i < GAMEIDS.length; i++){
+    for(var i  = 0;  i < GAMEIDS.length-15; i++){
         const matchID = GAMEIDS[i];
         const matchData = await axios.get("https://americas.api.riotgames.com/lol/match/v5/matches/"+matchID+"?api_key=" +API_KEY)
             .then(response => response.data)
@@ -66,7 +66,7 @@ app.get('/past5games', async (req, res) => {
         playerInfo: playerInfo
     };
 
-    res.json(GAMEDATA);
+    res.json(responseData);
 });
 
 app.get('/', async(req, res) => {
