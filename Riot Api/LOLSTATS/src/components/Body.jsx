@@ -2,8 +2,8 @@ import React from 'react';
 
 function Body({ gameList }) {
   return (
-    <div className="grid p-3.5 m-6 grid-cols-1 gap-2 sm:grid-cols-12 h-screen relative">
-      <div className='sm:col-span-10 bg-neutral-400 rounded-lg p-4 overflow-y-auto'>
+    <div className="grid p-3.5 m-6 grid-cols-1 gap-2 sm:grid-cols-12 h-screen">
+      <div className='sm:col-span-10 bg-neutral-400 rounded-lg p-4 '>
         <h2 className="text-lg font-bold mb-2 text-center">Game List</h2>
         {gameList.length !== 0 ?
           <div className='w-full'>
@@ -119,7 +119,7 @@ function Body({ gameList }) {
             <h1 className="flex items-center justify-center h-full">We have no data on that player</h1>
         }
       </div>
-      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg h-screen sticky top-0 right-0'>
+      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
         Here we will show the champions they most use
       </aside>
     </div>
