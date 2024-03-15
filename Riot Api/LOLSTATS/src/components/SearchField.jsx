@@ -10,12 +10,16 @@ function SearchField({ setGameList, setPlayerInfo, setPlayerChamps }) {
       .then(function(response){
         // setGameList(response.data) Only fetching games
         const { gameData, championData, playerInfo } = response.data;
-
+        if (gameData.length === 0 || !playerInfo || !championData) {
+          // Handle the case where no data is returned
+          console.log("No data found");
+          // You can display an error message, reset the states, or handle it as per your requirement
+        } else {
         // Update states with fetched data
         setGameList(gameData);
         setPlayerInfo(playerInfo);
         setPlayerChamps(championData);
-        
+        }
       }).catch(function(error){
         console.log("This is an error: ",error)
       })

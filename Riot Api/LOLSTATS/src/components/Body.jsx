@@ -291,6 +291,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
         }
       </div>
       <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
+      {playerChamps ?
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-4">Player Champions</h2>
             <ul>
@@ -308,6 +309,11 @@ function Body({ gameList, playerInfo, playerChamps }) {
               ))}
             </ul>
         </div>
+        :
+        <div>
+          No Name Entered or No Data Found ....
+        </div>
+      }
       </aside>
     </div>
   );
