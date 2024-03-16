@@ -12,7 +12,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     1: 'Annie',
     523: 'Aphelios',
     22: 'Ashe',
-    136: 'Aurelion Sol',
+    136: 'AurelionSol',
     268: 'Azir',
     432: 'Bard',
     200: "BelVeth",
@@ -55,7 +55,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     126: 'Jayce',
     202: 'Jhin',
     222: 'Jinx',
-    145: "Kai'Sa",
+    145: "Kaisa",
     429: 'Kalista',
     43: 'Karma',
     30: 'Karthus',
@@ -198,25 +198,31 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         <div className="flex flex-row gap-2">
                         <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
-                            alt={`Item 1 ${data.item0}`}
+                            alt={`Item 0 ${data.item0}`}
                             className="w-10 h-10 mr-2" 
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
 
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item1}.png`}
                             alt={`Item 1 ${data.item1}`}
                             className="w-10 h-10 mr-2" 
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
 
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item2}.png`}
                             alt={`Item 2 ${data.item2}`}
-                            className="w-10 h-10 mr-2"                        
+                            className="w-10 h-10 mr-2"    
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
+                                            
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item3}.png`}
                             alt={`Item 3 ${data.item3}`}
-                            className="w-10 h-10 mr-2"                        
+                            className="w-10 h-10 mr-2"    
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
+
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item4}.png`}
@@ -233,7 +239,8 @@ function Body({ gameList, playerInfo, playerChamps }) {
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item6}.png`}
                             alt={`Item 6 ${data.item6}`}
-                            className="w-10 h-10 mr-2"                        
+                            className="w-10 h-10 mr-2"
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
                           />
                         </div>
                       </div>
@@ -255,25 +262,31 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         <div className="flex flex-row gap-2">
                         <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
-                            alt={`Item 1 ${data.item0}`}
+                            alt={`Item 0 ${data.item0}`}
                             className="w-10 h-10 mr-2" 
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
 
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item1}.png`}
                             alt={`Item 1 ${data.item1}`}
                             className="w-10 h-10 mr-2" 
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
 
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item2}.png`}
                             alt={`Item 2 ${data.item2}`}
-                            className="w-10 h-10 mr-2"                        
+                            className="w-10 h-10 mr-2" 
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
+                       
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item3}.png`}
                             alt={`Item 3 ${data.item3}`}
-                            className="w-10 h-10 mr-2"                        
+                            className="w-10 h-10 mr-2"
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'}}                                              
+                        
                           />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item4}.png`}
