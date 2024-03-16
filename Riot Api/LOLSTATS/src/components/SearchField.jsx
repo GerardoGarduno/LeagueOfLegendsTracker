@@ -12,7 +12,7 @@ function SearchField({ setGameList, setPlayerInfo, setPlayerChamps }) {
         const { gameData, championData, playerInfo } = response.data;
         if (gameData.length === 0 || !playerInfo || !championData) {
           // Handle the case where no data is returned
-          console.log("No data found");
+          alert("error: No data found" );
           // You can display an error message, reset the states, or handle it as per your requirement
         } else {
         // Update states with fetched data
@@ -21,10 +21,12 @@ function SearchField({ setGameList, setPlayerInfo, setPlayerChamps }) {
         setPlayerChamps(championData);
         }
       }).catch(function(error){
+        alert(error);
         console.log("This is an error: ",error)
       })
   };
- 
+
+  
   return (
       <div className="grid p-3.5 m-6 grid-cols-1 gap-2 sm:grid-cols-12">
           <div className='sm:col-span-10'>
@@ -36,6 +38,10 @@ function SearchField({ setGameList, setPlayerInfo, setPlayerChamps }) {
                 onChange={event => {
                   setSummonersName(event.target.value);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter")
+                  getPlayerGames();
+                  }}
             />
           </div>
           <div className='sm:col-span-2'>  
