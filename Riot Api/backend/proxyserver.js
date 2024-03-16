@@ -29,7 +29,7 @@ function getChampionMasteries(PUUID, count) {
 // Route to handle getting past five games
 app.get('/past5games', async (req, res) => {
    const playerName = req.query.username;
-   const championCount = 5
+   const championCount = 11
    //will need to pull it in req so const championCount = req.query.count.
    const PUUID = await getPlayerPUUID(playerName);
    //https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/VEJj1lSAABd4LyfNxpa08xO6sAQEZQwhtuwbpq7DN9RfEakc3ct95664ETHrHQANK1N7dR-kdo0F2A/ids?start=0&count=20&api_key=RGAPI-89403eff-af80-496d-809b-c11a9884b068

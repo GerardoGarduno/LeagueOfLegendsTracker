@@ -15,7 +15,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     136: 'Aurelion Sol',
     268: 'Azir',
     432: 'Bard',
-    200: "Bel'Veth",
+    200: "BelVeth",
     53: 'Blitzcrank',
     63: 'Brand',
     201: 'Braum',
@@ -28,7 +28,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     122: 'Darius',
     131: 'Diana',
     119: 'Draven',
-    36: 'Dr. Mundo',
+    36: 'Dr.Mundo',
     245: 'Ekko',
     60: 'Elise',
     28: 'Evelynn',
@@ -82,7 +82,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     57: 'Maokai',
     11: 'Master Yi',
     902: 'Milio',
-    21: 'Miss Fortune',
+    21: 'MissFortune',
     62: 'Wukong',
     82: 'Mordekaiser',
     25: 'Morgana',
@@ -196,6 +196,12 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         {/* {console.log(data.summonerName)} */}
                         <span className="mr-2">{data.summonerName}, Champion: {data.championName}, KDA: <span className='text-green-900'>{data.kills}</span> / <span className="text-red-600">{data.deaths}</span> / {data.assists}</span>
                         <div className="flex flex-row gap-2">
+                        <img 
+                            src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
+                            alt={`Item 1 ${data.item0}`}
+                            className="w-10 h-10 mr-2" 
+
+                          />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item1}.png`}
                             alt={`Item 1 ${data.item1}`}
@@ -247,6 +253,12 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         <span className="font-semibold">Player {participantIndex + 1}: </span>
                         <span className="mr-2">Level:,{data.summonerLevel},{data.summonerName}, Champion: {data.championName}, KDA: <span className='text-green-900'>{data.kills}</span> / <span className="text-red-600">{data.deaths}</span> / {data.assists}</span>
                         <div className="flex flex-row gap-2">
+                        <img 
+                            src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
+                            alt={`Item 1 ${data.item0}`}
+                            className="w-10 h-10 mr-2" 
+
+                          />
                           <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item1}.png`}
                             alt={`Item 1 ${data.item1}`}
@@ -292,8 +304,8 @@ function Body({ gameList, playerInfo, playerChamps }) {
       </div>
       <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
       {playerChamps ?
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold mb-4">Player Champions</h2>
+        <div className="mt-3 h-fit">
+          <h2 className="text-lg font-semibold mb-4 text-center">Player Champions</h2>
             <ul>
               {playerChamps.map((champion, index) => (
                 <li key={index} className="bg-gray-100 rounded-lg p-4 mb-4">
