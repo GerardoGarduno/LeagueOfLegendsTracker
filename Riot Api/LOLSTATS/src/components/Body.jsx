@@ -23,7 +23,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     51: 'Caitlyn',
     164: 'Camille',
     69: 'Cassiopeia',
-    31: "Cho'Gath",
+    31: "Chogath",
     42: 'Corki',
     122: 'Darius',
     131: 'Diana',
@@ -67,7 +67,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     121: "Khazix",
     203: 'Kindred',
     240: 'Kled',
-    96: "Kog'Maw",
+    96: "KogMaw",
     897: 'KSante',
     7: 'Leblanc',
     64: 'LeeSin',
@@ -83,7 +83,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     11: 'MasterYi',
     902: 'Milio',
     21: 'MissFortune',
-    62: 'Wokong',
+    62: 'MonkeyKing',
     82: 'Mordekaiser',
     25: 'Morgana',
     950: 'Naafiri',
@@ -94,7 +94,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     76: 'Nidalee',
     895: 'Nilah',
     56: 'Nocturne',
-    20: 'Nunu&Willump',
+    20: 'Nunu',
     2: 'Olaf',
     61: 'Orianna',
     516: 'Ornn',
@@ -107,7 +107,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     33: 'Rammus',
     421: "RekSai",
     526: 'Rell',
-    888: 'RenataGlasc',
+    888: 'Renata',
     58: 'Renekton',
     107: 'Rengar',
     92: 'Riven',
@@ -174,17 +174,16 @@ function Body({ gameList, playerInfo, playerChamps }) {
   
   return (
     <div className="grid p-3.5 m-6 grid-cols-1 gap-2 sm:grid-cols-12 h-screen">
-      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
+      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sm:top-0 sm:right-0'>
         {playerInfo ? (
           <div className="mt-3 h-fit">
             <h2 className="text-lg font-semibold mb-4 text-center">Player Info</h2>
-            <div className="flex items-center justify-center flex-col">
-            
-            <img
-              src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/${playerInfo[0].profileIconId}.png`}
-              alt="Player Icon"
-              className="w-20 h-20 rounded-full mb-2"
-            />
+            <div className="flex items-center justify-center flex-col"> 
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/${playerInfo[0].profileIconId}.png`}
+                  alt="Player Icon"
+                  className=" grid w-20 h-20 rounded-full mb-2"
+                />
               <div className="text-center">
                 <p className="font-semibold">Player Name: {playerInfo[0].name}</p>
                 <p>Player Level: {playerInfo[0].summonerLevel}</p>
@@ -196,7 +195,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
           <div>No Name Entered or No Data Found ....</div>
         )}
         {playerChamps ?
-          <div className="mt-3 h-fit">
+          <div className="mt-3 h-fit flex flex-col items-center justify-center">
             <h2 className="text-lg font-semibold mb-4 text-center">Player Champions</h2>
               <ul>
                 {playerChamps.map((champion, index) => (
@@ -243,12 +242,11 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         </div>
                     </div>
                 </div>
-              
                 <div className= " flex gap-2 text-lg font-semibold mb-2">
                     Team 1: {gameData.info.teams[0].win ? <h3 className='text-green-600 '>Won</h3>: <p className='text-red-600'>Lost</p>}
                 </div>
                   {gameData.info.participants.slice(0, 5).map((data, participantIndex)=>
-                    <div key={participantIndex} className= "flex items-center bg-blue-200 rounded-lg p-2 mb-2">
+                    <div key={participantIndex} className= "flex items-center bg-blue-200 rounded-lg p-2 mb-2 flex-wrap">
                       <img
                         src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${data.championName}.png`}
                         alt={`Champion ${data.championName}`}
@@ -258,7 +256,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
                         <span className="font-semibold">Player {participantIndex + 1}: </span>
                         {/* {console.log(data.summonerName)} */}
                         <span className="mr-2">{data.summonerName}, Champion: {data.championName}, KDA: <span className='text-green-900'>{data.kills}</span> / <span className="text-red-600">{data.deaths}</span> / {data.assists}</span>
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-row gap-2 flex-wrap">
                         <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
                             alt={`Item 0 ${data.item0}`}
@@ -313,7 +311,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
                       Team 2: {gameData.info.teams[1].win ? <h3 className='text-green-600 '>Won</h3>: <p className='text-red-600'>Lost</p>}
                   </div>                  
                   {gameData.info.participants.slice(5, 10).map((data, participantIndex)=>
-                    <div key={participantIndex} className= "flex items-center bg-red-200 rounded-lg p-2 mb-2">
+                    <div key={participantIndex} className= "flex items-center bg-red-200 rounded-lg p-2 mb-2 flex-wrap">
                       <img
                         src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${data.championName}.png`}
                         alt={`Champion ${data.championName}`}
@@ -322,7 +320,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
                        <div>
                         <span className="font-semibold">Player {participantIndex + 1}: </span>
                         <span className="mr-2">Level:,{data.summonerLevel},{data.summonerName}, Champion: {data.championName}, KDA: <span className='text-green-900'>{data.kills}</span> / <span className="text-red-600">{data.deaths}</span> / {data.assists}</span>
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-row gap-2 flex-wrap">
                         <img 
                             src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${data.item0}.png`}
                             alt={`Item 0 ${data.item0}`}
