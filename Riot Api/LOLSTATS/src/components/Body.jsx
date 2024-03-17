@@ -83,7 +83,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
     11: 'MasterYi',
     902: 'Milio',
     21: 'MissFortune',
-    62: 'Wukong',
+    62: 'Wokong',
     82: 'Mordekaiser',
     25: 'Morgana',
     950: 'Naafiri',
@@ -174,13 +174,76 @@ function Body({ gameList, playerInfo, playerChamps }) {
   
   return (
     <div className="grid p-3.5 m-6 grid-cols-1 gap-2 sm:grid-cols-12 h-screen">
+      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
+        {playerInfo ? (
+          <div className="mt-3 h-fit">
+            <h2 className="text-lg font-semibold mb-4 text-center">Player Info</h2>
+            <div className="flex items-center justify-center flex-col">
+            
+            <img
+              src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/${playerInfo[0].profileIconId}.png`}
+              alt="Player Icon"
+              className="w-20 h-20 rounded-full mb-2"
+            />
+              <div className="text-center">
+                <p className="font-semibold">Player Name: {playerInfo[0].name}</p>
+                <p>Player Level: {playerInfo[0].summonerLevel}</p>
+                {/* Add other player ranking information here if available */}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div>No Name Entered or No Data Found ....</div>
+        )}
+        {playerChamps ?
+          <div className="mt-3 h-fit">
+            <h2 className="text-lg font-semibold mb-4 text-center">Player Champions</h2>
+              <ul>
+                {playerChamps.map((champion, index) => (
+                  <li key={index} className="bg-gray-100 rounded-lg p-4 mb-4">
+                    <img
+                      src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championDictionary[champion.championId]}_0.jpg`}
+                    />
+                    <>{championDictionary[champion.championId]}</>
+                    <div className="font-semibold">Champion ID: {champion.championId}</div>
+                    <div>Champion Level: {champion.championLevel}</div>
+                    <div>Champion Points: {champion.championPoints}</div>
+                    <div>Last Play Time: {new Date(champion.lastPlayTime).toLocaleString()}</div>
+                  </li>
+                ))}
+              </ul>
+          </div>
+          :
+          <div>
+            No Name Entered or No Data Found ....
+          </div>
+        }
+      </aside>    
       <div className='sm:col-span-10 bg-neutral-400 rounded-lg p-4 '>
         <h2 className="text-lg font-bold mb-2 text-center">Game List</h2>
         {gameList.length !== 0 ?
           <div className='w-full'>
             {gameList.map((gameData, index) =>
               <div key={index} className="mb-4">
-                <h2 className=" flex gap-2 text-lg font-semibold mb-2">{gameData.info.queueId == 420  ? <h2>Ranked Game </h2>: <h2>Normal Game</h2>}</h2>
+                <div>
+                    <h2 className="text-lg font-semibold mb-2">{gameData.info.queueId === 420 ? 'Ranked Game' : 'Normal Game'}</h2>
+                    <div className="mb-2">
+                        Start Date: {new Date(gameData.info.gameStartTimestamp).toLocaleDateString()} <br />
+                        Start Time: <span className="font-bold">{new Date(gameData.info.gameStartTimestamp).toLocaleTimeString()}</span>
+                    </div>
+                    <div>
+                        <div className="font-bold">
+                            Total Time: {
+                                (() => {
+                                    const totalTimeMs = gameData.info.gameEndTimestamp - gameData.info.gameStartTimestamp;
+                                    const totalMinutes = Math.floor((totalTimeMs % (1000 * 60 * 60)) / (1000 * 60));
+                                    return `${totalMinutes} minutes`;
+                                })()
+                            }
+                        </div>
+                    </div>
+                </div>
+              
                 <div className= " flex gap-2 text-lg font-semibold mb-2">
                     Team 1: {gameData.info.teams[0].win ? <h3 className='text-green-600 '>Won</h3>: <p className='text-red-600'>Lost</p>}
                 </div>
@@ -315,31 +378,7 @@ function Body({ gameList, playerInfo, playerChamps }) {
             <h1 className="flex items-center justify-center h-full">We have no data on that player</h1>
         }
       </div>
-      <aside  className='sm:col-span-2 bg-neutral-500 rounded-lg sticky top-0 right-0'>
-      {playerChamps ?
-        <div className="mt-3 h-fit">
-          <h2 className="text-lg font-semibold mb-4 text-center">Player Champions</h2>
-            <ul>
-              {playerChamps.map((champion, index) => (
-                <li key={index} className="bg-gray-100 rounded-lg p-4 mb-4">
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championDictionary[champion.championId]}_0.jpg`}
-                  />
-                  <>{championDictionary[champion.championId]}</>
-                  <div className="font-semibold">Champion ID: {champion.championId}</div>
-                  <div>Champion Level: {champion.championLevel}</div>
-                  <div>Champion Points: {champion.championPoints}</div>
-                  <div>Last Play Time: {new Date(champion.lastPlayTime).toLocaleString()}</div>
-                </li>
-              ))}
-            </ul>
-        </div>
-        :
-        <div>
-          No Name Entered or No Data Found ....
-        </div>
-      }
-      </aside>
+
     </div>
   );
 }
