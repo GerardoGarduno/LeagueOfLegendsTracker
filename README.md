@@ -36,12 +36,13 @@ To install the League of Legends Tracker, follow these steps:
 
     npm start
     ```
-
+![Screen-Recording-2024-03-19-at-9 30 20-AM](https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/8cdef9b7-7e6e-4374-9e7d-fc74d2bb1916)
 ## Setup
 
 Before running the application, you need to generate an API key from the Riot Games Developer Portal.
 
 ## Technologies Used
+
 
 The League of Legends Tracker is built using the following technologies:
 
@@ -63,7 +64,8 @@ To generate an API key for the League of Legends Tracker, follow these steps:
 
 ## Screenshots
 
-![Screenshot 1](https://your-screenshot-url.com)
-![Screenshot 2](https://your-screenshot-url.com)
-
+#Web Version
+https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/b4555a36-f725-4000-a2a5-2042b3db58a0
+#Mobile 
+https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/b8da738f-662b-4bc6-bb9a-893644fea784
 
