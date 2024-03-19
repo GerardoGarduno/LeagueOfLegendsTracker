@@ -62,10 +62,10 @@ To generate an API key for the League of Legends Tracker, follow these steps:
 4. Copy the generated API key.
 5. Replace `YOUR_API_KEY` in the "proxyserver.js" code with your API key.
 
-## Screenshots
+## GIFS
+![WEBSITE](https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/a3066c16-5451-4f9b-a521-450e0d80b584)
 
-#Web Version
-https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/b4555a36-f725-4000-a2a5-2042b3db58a0
-#Mobile 
-https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/b8da738f-662b-4bc6-bb9a-893644fea784
+
+
+![LOLMOBILE](https://github.com/GerardoGarduno/LeagueOfLegendsTracker/assets/48225150/0e6ac525-28e8-4cc4-9798-941b091c7e37)
 
