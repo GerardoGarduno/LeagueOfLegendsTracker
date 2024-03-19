@@ -5,7 +5,7 @@ const axios = require('axios');
 const app = express();
 app.use(cors());
 
-const API_KEY = 'RGAPI-e30eb1ca-7572-4fc2-9534-654af8121c20';
+const API_KEY = `YOUR_API_KEY`;
 const port = 3001;
 
 const playerInfo = []
